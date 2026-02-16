@@ -1,3 +1,11 @@
 from django.contrib import admin
-from django.urls import path, include
-urlpatterns=[path('admin/', admin.site.urls), path('api/', include('api.urls'))]
+from django.urls import path
+from django.http import JsonResponse
+
+def home(request):
+    return JsonResponse({"status": "Backend is working ✅"})
+
+urlpatterns = [
+    path('', home),
+    path('admin/', admin.site.urls),
+]
